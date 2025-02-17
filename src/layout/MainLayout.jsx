@@ -3,9 +3,9 @@ import Header from '../components/Header'
 
 function MainLayout({ children }) {
     return (
-        <div className='flex'>
+        <div className='flex select-none'>
             <Header />
-            <div className='p-[50px]'>
+            <div className='mx-auto p-[50px] w-full max-w-[1000px]'>
                 {children}
             </div>
         </div>
