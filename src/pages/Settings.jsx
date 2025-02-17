@@ -2,8 +2,10 @@ import React from 'react'
 
 function Settings() {
   return (
-    <div>Settings</div>
+    <div>
+      <h1 className='font-bold text-[#0C0E16] text-[32px]'>Settings</h1>
+    </div>
   )
 }
 
-export default Settings
+export default React.memo(Settings);
