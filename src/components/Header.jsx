@@ -18,7 +18,7 @@ function Header() {
     }
 
     return (
-        <div className="relative flex flex-col justify-between items-center bg-[#151513] pb-[24px] rounded-r-[20px] w-auto max-w-[103px] min-h-screen">
+        <header className="relative flex flex-col justify-between items-center bg-[#151513] pb-[24px] rounded-r-[20px] w-auto max-w-[103px] min-h-screen">
             <Link to="/">
                 <img className="rounded-r-[20px] w-[103px] h-[103px]" src={Logo} />
             </Link>
@@ -41,7 +41,7 @@ function Header() {
                     <Link to="/settings" className="text-md text-white">Settings</Link>
                 </motion.div>
             </div>
-        </div>
+        </header>
     )
 }
 
