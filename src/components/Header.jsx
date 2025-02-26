@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Logo from '../assets/logo.webp'
 import Menu from '../assets/menu.svg'
-import LogOut from '../assets/LogOut.png'
+import LogOut from '../assets/logOut.svg'
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -40,10 +40,10 @@ function Header() {
             <div className="relative flex flex-col items-center gap-[10px] w-full">
                 <img
                     onClick={LogOutFun}
-                    className="ml-[7px] w-[35px] h-[35px] active:scale-95 transition-[0.3s] cursor-pointer"
+                    className="w-[35px] h-[35px] active:scale-95 transition-[0.3s] cursor-pointer"
                     src={LogOut}
                 />
-                <button
+                <button 
                     ref={btnRef}
                     onClick={() => setIsOpen(!isOpen)}
                     className="bg-[#FCE000] px-[16px] py-[15px] rounded-full w-full max-w-[56px] active:scale-95 transition-[0.3s] cursor-pointer"
