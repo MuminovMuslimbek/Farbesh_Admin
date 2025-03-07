@@ -4,6 +4,7 @@ import EyesOpen from '../assets/eyesOpen.svg'
 import EyesClosed from '../assets/eyesClosed.svg'
 import { LoginPasswordContext, LoginUsernameContext } from '../App'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 function Login() {
   const { logUsername } = useContext(LoginUsernameContext)
@@ -45,8 +46,17 @@ function Login() {
       username, password
     }
 
-    localStorage.setItem('UserLogin', JSON.stringify(UserLogin))
-    navigate('/')
+    axios.post('https://farbesh.up.railway.app/api/auth/login/', UserLogin)
+      .then(res => {
+        console.log(res)
+        if (res.data) {
+          localStorage.setItem('user', JSON.stringify(res.data))
+        }
+        navigate('/')
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
     setUsername('')
     setPassword('')

@@ -23,7 +23,7 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    const user = localStorage.getItem("UserLogin");
+    const user = localStorage.getItem("user");
     if (!user) {
       navigate("/login");
     } else {

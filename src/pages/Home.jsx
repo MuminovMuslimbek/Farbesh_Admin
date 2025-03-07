@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import plusBtn from '../assets/plusBtn.svg';
+import axios from 'axios';
 
 const customStyles = {
   content: {
@@ -25,6 +26,8 @@ function Home() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [data, setData] = useState('')
+  console.log(data)
 
   function openModal() {
     setIsOpen(true);
@@ -35,6 +38,26 @@ function Home() {
     setUsername('');
     setEmail('');
   }
+
+  useEffect(() => {
+    const tokenData = localStorage.getItem('token');
+    if (!tokenData) return;
+
+    const tokenObj = JSON.parse(tokenData); 
+    const token = tokenObj.key;
+
+    axios.get('https://farbesh.up.railway.app/api/v2/drivers/', {
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -54,14 +77,30 @@ function Home() {
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Yangi Haydovchi Qo'shish">
         <h2 className="mb-4 font-semibold text-[24px]">Yangi Haydovchi Qo'shish</h2>
         <button onClick={closeModal} className="top-[18px] right-[30px] absolute text-[35px] rotate-[45deg] cursor-pointer">+</button>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-[15px]">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-[5px]">
           <label className="flex flex-col gap-[5px]">
-            Username:
-            <input value={username} onChange={(e) => setUsername(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Username kiriting" required />
+            Full name:
+            <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Ism-familyani kiriting" required />
           </label>
           <label className="flex flex-col gap-[5px]">
-            Email:
-            <input value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Email kiriting" type="email" required />
+            Mashinani rusumi:
+            <input value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Mashinani rusumini kiriting" type="text" required />
+          </label>
+          <label className="flex flex-col gap-[5px]">
+            Yosh:
+            <input value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Yoshni kiriting" type="text" required />
+          </label>
+          <label className="flex flex-col gap-[5px]">
+            Telefon raqam:
+            <input value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Telefon raqamni kiriting" type="text" required />
+          </label>
+          <label className="flex flex-col gap-[5px]">
+            Telegram id:
+            <input value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2 border rounded-md outline-none" placeholder="Telegram idni kiriting" type="number" required />
+          </label>
+          <label className="flex flex-col gap-[5px]">
+            Haydovchini rasmi
+            <input onClick={(e) => { setData(e.target) }} className="file:bg-[#FCE000] file:mr-4 px-3 file:px-4 py-2 file:py-2 border file:border-0 rounded-md file:rounded-lg outline-none file:text-black cursor-pointer" type="file" required />
           </label>
           <button type="submit" className="bg-[#FCE000] mt-[10px] px-3 py-2 rounded-md w-full active:scale-95 transition-[0.3s] cursor-pointer">Qo'shish</button>
         </form>
