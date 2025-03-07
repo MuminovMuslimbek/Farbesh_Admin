@@ -1,8 +1,24 @@
-# React + Vite
+## 📌 Farbesh Admin Panel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu repo Farbesh loyihasining admin paneli uchun ochilgan bo‘lib, platforma va haydovchilar ma’lumotlarini boshqarish imkonini beradi.
 
-Currently, two official plugins are available:
+### ⚙️ Admin Panel Xususiyatlari:
+- 🚖 Haydovchilarni qo‘shish va o‘chirish
+- 🤖 Haydovchilarni asosiy Telegram guruh bilan avtomatik bog‘lash
+- 👤 Foydalanuvchilarni boshqarish
+- 🔧 Platforma sozlamalarini o‘zgartirish
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🛠️ Texnologiyalar:
+- Frontend: React.js
+- Backend: Python
+- Ma’lumotlar bazasi: PostgreSQL
+
+### 🚀 Foydalanish
+Admin paneldan foydalanish uchun avval platformaga admin sifatida kirish talab etiladi. 
+
+🛡️ **Xavfsizlik:** Foydalanuvchilar va ma’lumotlarning xavfsizligi birinchi o‘rinda turadi.
+
+---
+
+🔥 **Loyihani rivojlantirishga yordam bering!** Agar sizda yangi g‘oyalar yoki takliflar bo‘lsa, biz bilan bog‘laning va loyihaga o‘z hissangizni qo‘shing!
+
